@@ -1,14 +1,11 @@
 function CocktailForm({ selected, select }) {
-    const categories = [
-      'all',
-      'whiskey',
-      'gin',
-      'tequila',
-      'vodka',
-      'rum',
-      'aperol',
-      'vermouth',
-    ];
+
+    const [newName, setNewName] = useState('');
+    const [newLiquor, setNewLiquor] = useState([]); 
+    const [newIngredients, setNewIngredients] = useState([]); 
+    const [newGarnish, setNewGarnish] = useState(''); 
+    const [newDirections, setNewDirections] = useState([]); 
+    const [submitCocktail, setSubmitCocktail] = useState(false);
   
     const handleSelectChange = (e) => {
       select(e.target.value);
@@ -30,7 +27,7 @@ function CocktailForm({ selected, select }) {
             ))}
           </select> */}
           <span>Add a new Cocktail:</span>
-          <div>
+          {/* <div>
 
             <div>
                 <input placeholder="Enter the name of the drink">
@@ -64,7 +61,46 @@ function CocktailForm({ selected, select }) {
                 </button>
             </div>
 
-          </div>
+          </div> */}
+            <form>
+                <label>Enter your name:
+                <div>
+                <input placeholder="Enter the name of the drink">
+                </input>
+            </div>
+
+            <div>
+                <input 
+                    placeholder="Enter the liquor name">
+                </input>
+            </div>
+            
+            <div>
+                <input placeholder="Enter the ingredients">
+                </input>
+            </div>
+
+            <div>
+                <input placeholder="Enter the garnish">
+                </input>
+            </div>
+
+            <div>
+                <input 
+                placeholder="Enter the directions"
+                // value={name}
+                // onChange={(e) => setName(e.target.value)}
+          >
+                </input>
+            </div>
+
+            <div>
+                <button onChange={(e) => setName(e.target.value)}> 
+                    Create Drink! 
+                </button>
+            </div>
+                </label>
+            </form>
           
         </label>
       </div>
