@@ -1,15 +1,15 @@
 const asyncHandler = require('express-async-handler');
+// asyncHandler is middleware for handling exceptions inside of async express routes and passing them to error handlers
+// saves us writing our own try/catch for async/await and passes error on to next.
 const Spirit = require('../models/dataModel');
 
 const baseError = {
-  message: 'An error occurred in in the controller function',
+  message: 'An error occurred in in  spiritController',
   status: 400,
 };
 
 const spiritController = {};
 
-// asyncHandler is middleware for handling exceptions inside of async express routes and passing them to error handlers
-// saves us writing our own try/catch for async/await and passes error on to next.
 spiritController.createSpirit = asyncHandler(async (req, res) => {
   const { name, ingredients, liquor, directions, garnish } = req.body;
 
@@ -36,11 +36,11 @@ spiritController.createSpirit = asyncHandler(async (req, res) => {
 });
 
 spiritController.getSpirits = asyncHandler(async (req, res, next) => {
-  if (req.body.liquor === '') {
+  const {liquor} = req.body;
+  if (liquor === '') {
     return baseError;
   }
 
-  //Mongo and/or Express did not like me using const here, why?
   res.locals.spirits = await Spirit.find();
   return next();
 });
