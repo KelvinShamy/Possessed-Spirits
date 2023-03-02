@@ -2,8 +2,7 @@ const db = require('../config/db.js');
 const express = require('express'); 
 const router = express.Router();
 
-/* GET REQUEST FOR ALL THE COCKTAILS: 
-USE GET REQUEST IN POSTMAN TO http://localhost:8080/api/cocktails */
+// GET REQUEST FOR ALL THE COCKTAILS: 
 router.get('/cocktails', async (req, res, next) => {
     try {
         console.log('trying to get cocktails')
@@ -19,8 +18,7 @@ router.get('/cocktails', async (req, res, next) => {
       }
 }); 
 
-/* POST REQUEST TO ADD A NEW COCKTAIL 
-USE POST REQUEST IN POSTMAN TO http://localhost:8080/api/cocktails */
+// POST REQUEST TO ADD A NEW COCKTAIL 
 router.post('/cocktails', async (req, res, next) => {
   try {
     const { name, liquor, ingredients, garnish, directions } = req.body;
@@ -46,7 +44,6 @@ router.delete('/cocktails/:id', async (req, res, next) => {
     const deletedRow = await db.deleteCocktail(id);
     if (!deletedRow) throw `${id}, id of cocktail to be deleted is falsy`;
     res.status(200).json(deletedRow);
-    // return next();
   } catch(err) {
     next({
       log: 'error deleting cocktail',
