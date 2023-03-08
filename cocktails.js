@@ -1,3 +1,5 @@
+// PRE-MIGRATION COCKTAIL INFO THAT DATABASE SHOULD CONTAIN
+
 module.exports = [
   {
     name: 'Whiskey Sour',

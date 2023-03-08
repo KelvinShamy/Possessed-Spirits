@@ -1,6 +1,6 @@
 # Possessed Spirits
 
-Cocktail Recipe Application 
+Mixology Application 
 
 # Installation
 
