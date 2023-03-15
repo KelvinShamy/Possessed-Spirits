@@ -13,7 +13,7 @@ export const CocktailProvider = ({ children }) => {
 
   useEffect(() => {
     getCocktails();
-  }, [submitCocktail]);  
+  }, []);  
   // array as 2nd param is list of dependencies (pieces of state)
   // the code inside useEffect will fire when any dependency changes
   // I added submitCocktail here
