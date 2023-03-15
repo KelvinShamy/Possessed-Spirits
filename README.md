@@ -18,10 +18,10 @@ npm install
 
 ```
 
-Finally, execute this command to run the app:
+Finally, execute this command to run the app in its current form:
 
 
 ```
-npm start
+npm run dev
 
 ```
