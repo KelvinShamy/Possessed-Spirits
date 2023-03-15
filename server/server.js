@@ -1,5 +1,4 @@
 const express = require('express');
-/* A middleware that allows us to make requests from a different domain. */
 const cors = require('cors');
 const colors = require('colors');
 const dotenv = require('dotenv').config();
@@ -10,7 +9,6 @@ const connectDB = require('./config/db');
 // connectDB();
 // app.use('/', require('./routes/cocktailRoutes'));
 
-/* NEW CHANGES */ 
 const apiRouter = require('./routes/apiRouter.js'); 
 
 
@@ -22,26 +20,25 @@ app.use(cors());
 
 
 
-/* NEW CHANGES: IMPORT COCKTAILS.JS FILE TO MIGRATE THE DATA TO SQL DB 
-- ONLY NEEDED TO BE RUN ONCE TO POPLULATE SQL DATABASE (WILL CREATE DUPLICATES IF RUN MORE THAN ONCE!)*/
-/* const cocktailJSON = require('../cocktails');
-const { insertCocktail } = require('./config/pool')
-// console.log(cocktailJSON);
-cocktailJSON.forEach(element => {
-  console.log(element);
-  insertCocktail(element);
-}); */
+// FOLLOWING LINES FOR MIGRATION TO SQL DATABASE. ONLY NEEDED TO BE RUN ONCE TO POPLULATE DB 
+// (WILL CREATE DUPLICATES IF RUN MORE THAN ONCE!)
+
+// const cocktailJSON = require('../cocktails');
+// const { insertCocktail } = require('./config/pool')
+// cocktailJSON.forEach(element => {
+//   console.log(element);
+//   insertCocktail(element);
+// });
 
 
-/* NEW CHANGES: */
 app.get('/', (req, res) => {
   res.status(200).json('GET request received');  
 }); 
 
-/* ROUTING ALL REQUESTS TO '/api' END POINT TO OUR apiRouter FILE */
+
 app.use('/api', apiRouter); 
 
-/* EXPRESS ERROR HANDLER */
+
 app.use((err, req, res, next) => {
   const defaultErr = {
     log: 'Express error handler caught unknown middleware error', 
@@ -53,7 +50,7 @@ app.use((err, req, res, next) => {
 })
 
 
-/* START SERVER */
+
 app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}...`);
 });
