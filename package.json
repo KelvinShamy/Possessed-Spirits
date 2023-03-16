@@ -1,7 +1,7 @@
 {
-  "name": "cocktail-finder",
+  "name": "possessed-spirits",
   "version": "1.0.0",
-  "description": "Scratch Project",
+  "description": "Mixology App",
   "main": "server.js",
   "scripts": {
     "start": "node server/server.js",
@@ -9,7 +9,7 @@
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm --prefix client run dev\""
   },
-  "author": "Goblin Sharks",
+  "author": "Kelvin Shamy",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
